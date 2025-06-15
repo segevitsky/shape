@@ -1,5 +1,7 @@
+
+
 import { useState } from 'react';
-import { Zap, Target, Calendar, CheckCircle, Utensils, Coffee } from 'lucide-react';
+import { Zap, Target, Calendar, CheckCircle, Utensils, Coffee, Trophy, Star } from 'lucide-react';
 
 const ExplosivePowerRoutine = () => {
   const [selectedDay, setSelectedDay] = useState('power');
@@ -10,7 +12,7 @@ const ExplosivePowerRoutine = () => {
   const toggleExercise = (exerciseId: any) => {
     setCompletedExercises(prev => ({
       ...prev,
-      //@ts-ignore
+      // @ts-ignore
       [exerciseId]: !prev[exerciseId]
     }));
   };
@@ -19,6 +21,7 @@ const ExplosivePowerRoutine = () => {
     power: {
       title: "Explosive Power Day",
       icon: <Zap className="w-5 h-5 text-yellow-500" />,
+      color: "from-yellow-400 to-orange-500",
       focus: "Maximum explosive output + power endurance",
       warmup: [
         "Dynamic arm circles - 10 each direction",
@@ -54,6 +57,7 @@ const ExplosivePowerRoutine = () => {
     hiit: {
       title: "HIIT Shredding Day",
       icon: <Target className="w-5 h-5 text-red-500" />,
+      color: "from-red-400 to-pink-500",
       focus: "Fat burning + cardiovascular power",
       warmup: [
         "High knees - 30 seconds",
@@ -88,6 +92,7 @@ const ExplosivePowerRoutine = () => {
     strength: {
       title: "Strength Progression Day", 
       icon: <CheckCircle className="w-5 h-5 text-blue-500" />,
+      color: "from-blue-400 to-indigo-500",
       focus: "Progressive overload + skill building",
       warmup: [
         "Band pull-aparts - 15 reps",
@@ -123,6 +128,7 @@ const ExplosivePowerRoutine = () => {
     active: {
       title: "Active Recovery Day",
       icon: <Calendar className="w-5 h-5 text-green-500" />,
+      color: "from-green-400 to-teal-500",
       focus: "Movement quality + flexibility + light cardio",
       warmup: [
         "Gentle neck rolls - 5 each direction",
@@ -143,13 +149,26 @@ const ExplosivePowerRoutine = () => {
           ]
         },
         {
-          name: "Light Cardio",
+          name: "Detailed Stretching Routine (10 minutes)",
+          rounds: 1,
+          rest: "Move between stretches smoothly",
+          exercises: [
+            { name: "Upper Body Stretches", reps: "3-4 minutes", note: "Shoulders 30s, Arms overhead 30s, Chest 30s, Neck rolls 30s" },
+            { name: "Core & Back Stretches", reps: "2-3 minutes", note: "Cat-Cow 10 reps, Child Pose 60s, Cobra 30s" },
+            { name: "Hip & Glute Stretch", reps: "45s each side", note: "Lie on back, pull knee to chest, feel stretch in glute" },
+            { name: "Hamstring Stretch", reps: "45s each leg", note: "Lie on back, leg up straight, hold behind thigh" },
+            { name: "Calf Stretch", reps: "30s each leg", note: "Against wall, back leg straight, push heel down" },
+            { name: "Quad Stretch", reps: "30s each leg", note: "Standing, pull foot to glute, hold wall for balance" }
+          ]
+        },
+        {
+          name: "Light Activity Options",
           rounds: 1,
           rest: "As needed",
           exercises: [
-            { name: "Easy Walk/March", reps: "10-15 minutes", note: "Conversational pace" },
-            { name: "Gentle Stretching", reps: "10 minutes", note: "Hold each stretch 30 sec" },
-            { name: "Foam Rolling", reps: "5-10 minutes", note: "If available" }
+            { name: "Easy Walk", reps: "10-15 minutes", note: "Conversational pace, fresh air" },
+            { name: "Light Swimming", reps: "15-20 minutes", note: "Gentle laps, focus on form" },
+            { name: "Meditation/Breathing", reps: "5-10 minutes", note: "Deep belly breathing, relaxation" }
           ]
         }
       ]
@@ -159,6 +178,7 @@ const ExplosivePowerRoutine = () => {
   const nutritionPlans = {
     power: {
       title: "יום כוח - תזונה לאנרגיה מרבית",
+      color: "from-orange-400 to-red-400",
       preworkout: {
         timing: "30-60 דקות לפני האימון",
         options: [
@@ -182,20 +202,20 @@ const ExplosivePowerRoutine = () => {
           options: [
             "3 ביצים מקושקשות + לחם מלא + אבוקדו חצי + ירקות",
             "שיבולת שועל + בננה + אגוזים + דבש + קפה",
-            "קוטג' + תמרים + אגוזי מלך + לחם מלא"
+            "קוטג + תמרים + אגוזי מלך + לחם מלא"
           ]
         },
         {
           name: "ארוחת צהריים",
           time: "13:00-14:00", 
           options: [
-            "חזה עוף 150 גר' + אורז חום + סלט גדול + חומוס",
-            "סלמון 120 גר' + בטטה אפויה + ירקות מוקפצים",
-            "המבורגר הודו + לחמנייה מלאה + סלט + בטטה צ'יפס"
+            "חזה עוף 150 גרם + אורז חום + סלט גדול + חומוס",
+            "סלמון 120 גרם + בטטה אפויה + ירקות מוקפצים",
+            "המבורגר הודו + לחמנייה מלאה + סלט + בטטה ציפס"
           ]
         },
         {
-          name: "חטיף אחה\"צ",
+          name: "חטיף אחר הצהריים",
           time: "16:30-17:00",
           options: [
             "טחינה גולמית + גזר + מלפפון",
@@ -207,7 +227,7 @@ const ExplosivePowerRoutine = () => {
           name: "ארוחת ערב",
           time: "19:30-20:30",
           options: [
-            "דג פילה 150 גר' + קינואה + ירקות צלויים",
+            "דג פילה 150 גרם + קינואה + ירקות צלויים",
             "סטייק הודו + אורז לבן + סלט + טחינה",
             "פסטה מלאה + רוטב עגבניות + גבינת פטה + זיתים"
           ]
@@ -222,6 +242,7 @@ const ExplosivePowerRoutine = () => {
     },
     hiit: {
       title: "יום HIIT - תזונה לשריפת שומן",
+      color: "from-red-400 to-pink-400",
       preworkout: {
         timing: "45-60 דקות לפני האימון",
         options: [
@@ -245,7 +266,7 @@ const ExplosivePowerRoutine = () => {
           options: [
             "2 ביצים + אבוקדו חצי + ירקות + קפה",
             "יוגורט יווני + אגוזים + פירות יער",
-            "קוטג' + עגבניות + מלפפון + לחם דק"
+            "קוטג + עגבניות + מלפפון + לחם דק"
           ]
         },
         {
@@ -258,7 +279,7 @@ const ExplosivePowerRoutine = () => {
           ]
         },
         {
-          name: "חטיף אחה\"צ",
+          name: "חטיף אחר הצהריים",
           time: "16:30-17:00", 
           options: [
             "גזר + טחינה גולמית",
@@ -285,6 +306,7 @@ const ExplosivePowerRoutine = () => {
     },
     strength: {
       title: "יום כוח - תזונה לבניית שריר",
+      color: "from-blue-400 to-indigo-400",
       preworkout: {
         timing: "60-90 דקות לפני האימון",
         options: [
@@ -308,20 +330,20 @@ const ExplosivePowerRoutine = () => {
           options: [
             "3 ביצים + לחם מלא + גבינה + ירקות",
             "שיבולת שועל + חלב + אגוזים + פירות",
-            "קוטג' + תמרים + לוז + קפה + לחם"
+            "קוטג + תמרים + לוז + קפה + לחם"
           ]
         },
         {
           name: "ארוחת צהריים", 
           time: "13:00-14:00",
           options: [
-            "חזה עוף 200 גר' + אורז + חומוס + סלט",
+            "חזה עוף 200 גרם + אורז + חומוס + סלט",
             "סטייק בקר + תפוח אדמה + ירקות מוקפצים",
             "דג + פסטה + רוטב עגבניות + פרמזן"
           ]
         },
         {
-          name: "חטיף אחה\"צ",
+          name: "חטיף אחר הצהריים",
           time: "16:30-17:00",
           options: [
             "אגוזים + תמרים + בננה",
@@ -335,12 +357,12 @@ const ExplosivePowerRoutine = () => {
           options: [
             "סלמון + בטטה + אספרגוס",
             "חזה הודו + אורז לבן + ירקות + טחינה",
-            "המבורגר בית + לחמנייה + בטטה צ'יפס"
+            "המבורגר בית + לחמנייה + בטטה ציפס"
           ]
         }
       ],
       tips: [
-        "זה היום הכי חשוב לחלבון - לפחות 1.5 גר' לקילו",
+        "זה היום הכי חשוב לחלבון - לפחות 1.5 גרם לקילו",
         "תאכל פחמימות איכותיות לפני ואחרי האימון",
         "מותר מתוקים קטנים אחרי אימון כוח",
         "שתה חלב לפני השינה לשיקום השרירים"
@@ -348,6 +370,7 @@ const ExplosivePowerRoutine = () => {
     },
     active: {
       title: "יום התאוששות - תזונה לשיקום",
+      color: "from-green-400 to-teal-400",
       preworkout: {
         timing: "לא נדרש - פעילות קלה",
         options: [
@@ -384,7 +407,7 @@ const ExplosivePowerRoutine = () => {
           ]
         },
         {
-          name: "חטיף אחה\"צ",
+          name: "חטיף אחר הצהריים",
           time: "16:30-17:00",
           options: [
             "פירות העונה + אגוזים",
@@ -412,287 +435,309 @@ const ExplosivePowerRoutine = () => {
   };
 
   const weeklySchedule = {
-    1: { title: "Foundation Week", intensity: "Build base explosive power" },
-    2: { title: "Progression Week", intensity: "Increase volume and complexity" },
-    3: { title: "Peak Week", intensity: "Maximum intensity and challenge" },
-    4: { title: "Deload Week", intensity: "Recover and consolidate gains" }
+    1: { title: "Foundation Week", intensity: "Build base explosive power", emoji: "🏗️" },
+    2: { title: "Progression Week", intensity: "Increase volume and complexity", emoji: "📈" },
+    3: { title: "Peak Week", intensity: "Maximum intensity and challenge", emoji: "🔥" },
+    4: { title: "Deload Week", intensity: "Recover and consolidate gains", emoji: "💤" }
   };
 
 
-  // @ts-ignore
+    // @ts-ignore
   const currentRoutine = routines[selectedDay];
-  // @ts-ignore
+    // @ts-ignore
   const currentNutrition = nutritionPlans[selectedDay];
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-gradient-to-br from-slate-50 to-blue-50 min-h-screen">
-      <div className="bg-white rounded-xl shadow-lg p-6 mb-6">
-        <div className="text-center mb-6">
-          <h1 className="text-3xl font-bold text-gray-800 mb-2">
-            🔥 Explosive Power & Shredding Program
-          </h1>
-          <p className="text-gray-600">Break through plateaus • Build explosive power • Get shredded</p>
-        </div>
-
-        <div className="mb-6">
-          <div className="flex justify-between items-center mb-4">
-            <h3 className="text-lg font-semibold text-gray-700">Week Progress</h3>
-            <select 
-              value={selectedWeek}
-              onChange={(e) => setSelectedWeek(Number(e.target.value))}
-              className="px-3 py-1 border border-gray-300 rounded-lg"
-            >
-              {Object.entries(weeklySchedule).map(([week, info]) => (
-                <option key={week} value={week}>Week {week}: {info.title}</option>
-              ))}
-            </select>
-          </div>
-          <div className="bg-blue-50 p-3 rounded-lg">
-            <p className="text-sm text-blue-800 font-medium">
-              {
-              // @ts-ignore
-              weeklySchedule[selectedWeek].intensity
-              }
-            </p>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
-          {Object.entries(routines).map(([key, routine]) => (
-            <button
-              key={key}
-              onClick={() => setSelectedDay(key)}
-              className={`p-3 rounded-lg border-2 transition-all ${
-                selectedDay === key 
-                  ? 'border-blue-500 bg-blue-50' 
-                  : 'border-gray-200 hover:border-gray-300'
-              }`}
-            >
-              <div className="flex items-center gap-2 mb-1">
-                {routine.icon}
-                <span className="font-medium text-sm">{routine.title}</span>
-              </div>
-            </button>
-          ))}
-        </div>
-
-        <div className="flex gap-3 mb-6">
-          <button
-            onClick={() => setShowNutrition(false)}
-            className={`px-4 py-2 rounded-lg font-medium transition-all ${
-              !showNutrition 
-                ? 'bg-blue-500 text-white' 
-                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-            }`}
-          >
-            💪 תוכנית אימונים
-          </button>
-          <button
-            onClick={() => setShowNutrition(true)}
-            className={`px-4 py-2 rounded-lg font-medium transition-all ${
-              showNutrition 
-                ? 'bg-green-500 text-white' 
-                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-            }`}
-          >
-            🍽️ תזונה יומית
-          </button>
-        </div>
-      </div>
-
-      {!showNutrition ? (
-        <div className="bg-white rounded-xl shadow-lg p-6">
-          <div className="mb-4">
-            <div className="flex items-center gap-3 mb-2">
-              {currentRoutine.icon}
-              <h2 className="text-2xl font-bold text-gray-800">{currentRoutine.title}</h2>
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900">
+      <div className="bg-gradient-to-r from-gray-800 to-gray-900 shadow-2xl">
+        <div className="max-w-4xl mx-auto p-4 sm:p-6">
+          <div className="text-center mb-6">
+            <div className="flex items-center justify-center gap-3 mb-3">
+              <span className="text-2xl">🔥</span>
+              <h1 className="text-2xl sm:text-3xl font-bold text-white">
+                Explosive Power Program
+              </h1>
+              <span className="text-2xl">🔥</span>
             </div>
-            <p className="text-gray-600 mb-4">{currentRoutine.focus}</p>
+            <p className="text-gray-300 text-sm sm:text-base">Break barriers • Build explosive power • Get shredded</p>
           </div>
 
           <div className="mb-6">
-            <h3 className="text-lg font-semibold text-gray-700 mb-3">🔥 Warm-up (5 minutes)</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-              {currentRoutine.warmup.map((exercise: any, index: number) => (
-                <div key={index} className="flex items-center gap-2 p-2 bg-orange-50 rounded">
-                  <div className="w-6 h-6 bg-orange-200 rounded-full flex items-center justify-center text-xs font-bold text-orange-800">
-                    {index + 1}
-                  </div>
-                  <span className="text-sm text-gray-700">{exercise}</span>
-                </div>
-              ))}
+            <div className="flex flex-col sm:flex-row justify-between items-center mb-4 gap-3">
+              <h3 className="text-lg font-semibold text-white flex items-center gap-2">
+                <Trophy className="w-5 h-5 text-yellow-400" />
+                Week Progress
+              </h3>
+              <select 
+                value={selectedWeek}
+                onChange={(e) => setSelectedWeek(Number(e.target.value))}
+                className="px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white text-sm focus:ring-2 focus:ring-blue-500 min-w-[200px]"
+              >
+                {Object.entries(weeklySchedule).map(([week, info]) => (
+                  <option key={week} value={week}>
+                    {info.emoji} Week {week}: {info.title}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className={`bg-gradient-to-r ${currentRoutine.color} p-4 rounded-xl shadow-lg`}>
+              <p className="text-white font-medium text-center text-sm sm:text-base">
+                {
+                    // @ts-ignore
+                weeklySchedule[selectedWeek].emoji} {weeklySchedule[selectedWeek].intensity}
+              </p>
             </div>
           </div>
 
-          {currentRoutine.circuits.map((circuit: any, circuitIndex: number) => (
-            <div key={circuitIndex} className="mb-6 border border-gray-200 rounded-lg p-4">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-semibold text-gray-800">{circuit.name}</h3>
-                <div className="text-sm text-gray-600">
-                  <span className="font-medium">{circuit.rounds} rounds</span> • {circuit.rest}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+            {Object.entries(routines).map(([key, routine]) => (
+              <button
+                key={key}
+                onClick={() => setSelectedDay(key)}
+                className={`p-3 sm:p-4 rounded-xl border-2 transition-all duration-300 transform hover:scale-105 ${
+                  selectedDay === key 
+                    ? 'border-white bg-white/20 shadow-lg' 
+                    : 'border-gray-600 bg-gray-800/50 hover:border-gray-400'
+                }`}
+              >
+                <div className="flex flex-col items-center gap-2">
+                  {routine.icon}
+                  <span className="font-medium text-white text-xs sm:text-sm text-center leading-tight">
+                    {routine.title}
+                  </span>
                 </div>
-              </div>
-
-              <div className="space-y-3">
-                {circuit.exercises.map((exercise: any, exerciseIndex: number) => {
-                  const exerciseId = `${selectedDay}-${circuitIndex}-${exerciseIndex}`;
-                  // @ts-ignore
-                  const isCompleted = completedExercises[exerciseId];
-                  
-                  return (
-                    <div 
-                      key={exerciseIndex}
-                      className={`p-3 rounded-lg border transition-all cursor-pointer ${
-                        isCompleted 
-                          ? 'bg-green-50 border-green-200' 
-                          : 'bg-gray-50 border-gray-200 hover:border-gray-300'
-                      }`}
-                      onClick={() => toggleExercise(exerciseId)}
-                    >
-                      <div className="flex items-center gap-3">
-                        <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ${
-                          isCompleted 
-                            ? 'bg-green-500 border-green-500' 
-                            : 'border-gray-300'
-                        }`}>
-                          {isCompleted && <CheckCircle className="w-4 h-4 text-white" />}
-                        </div>
-                        <div className="flex-1">
-                          <div className="flex items-center justify-between">
-                            <span className={`font-medium ${isCompleted ? 'text-green-800' : 'text-gray-800'}`}>
-                              {exercise.name}
-                            </span>
-                            <span className="text-sm font-semibold text-blue-600">
-                              {exercise.reps}
-                            </span>
-                          </div>
-                          {exercise.note && (
-                            <p className="text-xs text-gray-600 mt-1">{exercise.note}</p>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          ))}
-
-          <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-4 rounded-lg mt-6">
-            <h3 className="font-semibold text-gray-800 mb-2">💡 Pro Tips for Week {selectedWeek}</h3>
-            <div className="text-sm text-gray-700 space-y-1">
-              {selectedWeek === 1 && (
-                <>
-                  <p>• Focus on perfect form before speed</p>
-                  <p>• Track your max reps to see progress</p>
-                  <p>• Take extra rest if you need it</p>
-                </>
-              )}
-              {selectedWeek === 2 && (
-                <>
-                  <p>• Increase explosive speed on power days</p>
-                  <p>• Reduce rest time by 10-15 seconds</p>
-                  <p>• Add extra reps to strength exercises</p>
-                </>
-              )}
-              {selectedWeek === 3 && (
-                <>
-                  <p>• Push for maximum intensity</p>
-                  <p>• Try advanced exercise variations</p>
-                  <p>• This is your peak performance week!</p>
-                </>
-              )}
-              {selectedWeek === 4 && (
-                <>
-                  <p>• Reduce intensity by 20-30%</p>
-                  <p>• Focus on mobility and recovery</p>
-                  <p>• Prepare your body for the next cycle</p>
-                </>
-              )}
-            </div>
+              </button>
+            ))}
           </div>
 
-          <div className="bg-yellow-50 p-4 rounded-lg mt-4 border border-yellow-200">
-            <h3 className="font-semibold text-yellow-800 mb-2">⚡ Weekly Schedule Recommendation</h3>
-            <div className="text-sm text-yellow-700">
-              <p><strong>Monday:</strong> Power Day • <strong>Tuesday:</strong> HIIT Shredding • <strong>Wednesday:</strong> Active Recovery</p>
-              <p><strong>Thursday:</strong> Strength Progression • <strong>Friday:</strong> Power Day • <strong>Saturday:</strong> HIIT Shredding • <strong>Sunday:</strong> Full Rest or Light Activity</p>
-            </div>
+          <div className="flex gap-3 mb-6">
+            <button
+              onClick={() => setShowNutrition(false)}
+              className={`flex-1 px-4 py-3 rounded-xl font-medium transition-all duration-300 ${
+                !showNutrition 
+                  ? 'bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg' 
+                  : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+              }`}
+            >
+              💪 אימונים
+            </button>
+            <button
+              onClick={() => setShowNutrition(true)}
+              className={`flex-1 px-4 py-3 rounded-xl font-medium transition-all duration-300 ${
+                showNutrition 
+                  ? 'bg-gradient-to-r from-green-500 to-green-600 text-white shadow-lg' 
+                  : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+              }`}
+            >
+              🍽️ תזונה
+            </button>
           </div>
         </div>
-      ) : (
-        <div className="bg-white rounded-xl shadow-lg p-6">
-          <div className="mb-4">
-            <div className="flex items-center gap-3 mb-2">
-              <Utensils className="w-6 h-6 text-green-600" />
-              <h2 className="text-2xl font-bold text-gray-800">{currentNutrition.title}</h2>
-            </div>
-          </div>
+      </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-            <div className="bg-orange-50 p-4 rounded-lg border border-orange-200">
-              <div className="flex items-center gap-2 mb-3">
-                <Coffee className="w-5 h-5 text-orange-600" />
-                <h3 className="font-semibold text-orange-800">לפני האימון</h3>
+      <div className="max-w-4xl mx-auto p-4 sm:p-6">
+        {!showNutrition ? (
+          <div className="bg-gray-800/80 backdrop-blur-lg rounded-2xl shadow-2xl p-4 sm:p-6 border border-gray-700">
+            <div className="mb-6">
+              <div className="flex items-center gap-3 mb-3">
+                {currentRoutine.icon}
+                <h2 className="text-xl sm:text-2xl font-bold text-white">{currentRoutine.title}</h2>
               </div>
-              <p className="text-sm text-orange-700 mb-2 font-medium">{currentNutrition.preworkout.timing}</p>
-              <div className="space-y-1">
-                {currentNutrition.preworkout.options.map((option: any, index: number) => (
-                  <div key={index} className="text-sm text-gray-700 bg-white p-2 rounded">
-                    • {option}
+              <p className="text-gray-300 text-sm sm:text-base">{currentRoutine.focus}</p>
+            </div>
+
+            <div className="mb-6">
+              <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+                🔥 Warm-up (5 minutes)
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {currentRoutine.warmup.map((exercise: any, index: any) => (
+                  <div key={index} className="flex items-center gap-3 p-3 bg-orange-500/20 rounded-xl border border-orange-500/30">
+                    <div className="w-7 h-7 bg-orange-500 rounded-full flex items-center justify-center text-xs font-bold text-white flex-shrink-0">
+                      {index + 1}
+                    </div>
+                    <span className="text-gray-200 text-sm">{exercise}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="bg-green-50 p-4 rounded-lg border border-green-200">
-              <div className="flex items-center gap-2 mb-3">
-                <Zap className="w-5 h-5 text-green-600" />
-                <h3 className="font-semibold text-green-800">אחרי האימון</h3>
-              </div>
-              <p className="text-sm text-green-700 mb-2 font-medium">{currentNutrition.postworkout.timing}</p>
-              <div className="space-y-1">
-                {currentNutrition.postworkout.options.map((option: any, index: number) => (
-                  <div key={index} className="text-sm text-gray-700 bg-white p-2 rounded">
-                    • {option}
+            {currentRoutine.circuits.map((circuit: any, circuitIndex: any) => (
+              <div key={circuitIndex} className="mb-6 bg-gray-700/50 border border-gray-600 rounded-xl p-4 sm:p-5">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-2">
+                  <h3 className="text-lg font-semibold text-white">{circuit.name}</h3>
+                  <div className="text-sm text-gray-300">
+                    <span className="font-medium text-blue-400">{circuit.rounds} rounds</span> • {circuit.rest}
                   </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="space-y-4 mb-6">
-            {currentNutrition.meals.map((meal: any, index: number) => (
-              <div key={index} className="border border-gray-200 rounded-lg p-4">
-                <div className="flex items-center justify-between mb-3">
-                  <h3 className="font-semibold text-gray-800 text-lg">{meal.name}</h3>
-                  <span className="text-sm text-blue-600 font-medium">{meal.time}</span>
                 </div>
-                <div className="grid grid-cols-1 gap-2">
-                  {meal.options.map((option: any, optionIndex: number) => (
-                    <div key={optionIndex} className="bg-gray-50 p-3 rounded border-r-4 border-blue-400">
-                      <p className="text-sm text-gray-700">
-                        <span className="font-medium text-blue-600">אופציה {optionIndex + 1}:</span> {option}
-                      </p>
+
+                <div className="space-y-3">
+                  {circuit.exercises.map((exercise: any, exerciseIndex: any) => {
+                    const exerciseId = `${selectedDay}-${circuitIndex}-${exerciseIndex}`;
+                        // @ts-ignore
+                    const isCompleted = completedExercises[exerciseId];
+                    
+                    return (
+                      <div 
+                        key={exerciseIndex}
+                        className={`p-4 rounded-xl border transition-all cursor-pointer transform hover:scale-[1.02] ${
+                          isCompleted 
+                            ? 'bg-green-500/20 border-green-500/50' 
+                            : 'bg-gray-600/30 border-gray-500/50 hover:border-gray-400/70'
+                        }`}
+                        onClick={() => toggleExercise(exerciseId)}
+                      >
+                        <div className="flex items-center gap-4">
+                          <div className={`w-8 h-8 rounded-full border-2 flex items-center justify-center transition-all ${
+                            isCompleted 
+                              ? 'bg-green-500 border-green-500' 
+                              : 'border-gray-400 hover:border-gray-300'
+                          }`}>
+                            {isCompleted && <CheckCircle className="w-5 h-5 text-white" />}
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex flex-col sm:flex-row sm:items-center justify-between">
+                              <span className={`font-medium ${isCompleted ? 'text-green-300' : 'text-white'}`}>
+                                {exercise.name}
+                              </span>
+                              <span className="text-sm font-semibold text-blue-400 mt-1 sm:mt-0">
+                                {exercise.reps}
+                              </span>
+                            </div>
+                            {exercise.note && (
+                              <p className="text-xs text-gray-400 mt-2">{exercise.note}</p>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
+
+            <div className={`bg-gradient-to-r ${currentRoutine.color} p-4 sm:p-5 rounded-xl mt-6`}>
+              <h3 className="font-semibold text-white mb-3 flex items-center gap-2">
+                💡 Pro Tips for Week {selectedWeek}
+              </h3>
+              <div className="text-sm text-white/90 space-y-2">
+                {selectedWeek === 1 && (
+                  <>
+                    <p>• Focus on perfect form before speed</p>
+                    <p>• Track your max reps to see progress</p>
+                    <p>• Take extra rest if you need it</p>
+                  </>
+                )}
+                {selectedWeek === 2 && (
+                  <>
+                    <p>• Increase explosive speed on power days</p>
+                    <p>• Reduce rest time by 10-15 seconds</p>
+                    <p>• Add extra reps to strength exercises</p>
+                  </>
+                )}
+                {selectedWeek === 3 && (
+                  <>
+                    <p>• Push for maximum intensity</p>
+                    <p>• Try advanced exercise variations</p>
+                    <p>• This is your peak performance week!</p>
+                  </>
+                )}
+                {selectedWeek === 4 && (
+                  <>
+                    <p>• Reduce intensity by 20-30%</p>
+                    <p>• Focus on mobility and recovery</p>
+                    <p>• Prepare your body for the next cycle</p>
+                  </>
+                )}
+              </div>
+            </div>
+
+            <div className="bg-yellow-500/20 border border-yellow-500/30 p-4 rounded-xl mt-4">
+              <h3 className="font-semibold text-yellow-300 mb-3 flex items-center gap-2">
+                ⚡ Weekly Schedule Recommendation
+              </h3>
+              <div className="text-sm text-yellow-100 space-y-1">
+                <p><strong>Monday:</strong> Power Day • <strong>Tuesday:</strong> HIIT Shredding • <strong>Wednesday:</strong> Active Recovery</p>
+                <p><strong>Thursday:</strong> Strength Progression • <strong>Friday:</strong> Power Day • <strong>Saturday:</strong> HIIT Shredding • <strong>Sunday:</strong> Full Rest</p>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div className="bg-gray-800/80 backdrop-blur-lg rounded-2xl shadow-2xl p-4 sm:p-6 border border-gray-700">
+            <div className="mb-6">
+              <div className="flex items-center gap-3 mb-3">
+                <Utensils className="w-6 h-6 text-green-400" />
+                <h2 className="text-xl sm:text-2xl font-bold text-white">{currentNutrition.title}</h2>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-6">
+              <div className="bg-orange-500/20 border border-orange-500/30 p-4 rounded-xl">
+                <div className="flex items-center gap-2 mb-3">
+                  <Coffee className="w-5 h-5 text-orange-400" />
+                  <h3 className="font-semibold text-orange-300">לפני האימון</h3>
+                </div>
+                <p className="text-sm text-orange-200 mb-3 font-medium">{currentNutrition.preworkout.timing}</p>
+                <div className="space-y-2">
+                  {currentNutrition.preworkout.options.map((option: any, index: number) => (
+                    <div key={index} className="text-sm text-gray-200 bg-gray-800/50 p-2 rounded-lg">
+                      • {option}
                     </div>
                   ))}
                 </div>
               </div>
-            ))}
-          </div>
 
-          <div className="bg-gradient-to-r from-green-50 to-blue-50 p-4 rounded-lg">
-            <h3 className="font-semibold text-gray-800 mb-3">💡 טיפים תזונתיים ליום הזה</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-              {currentNutrition.tips.map((tip: any, index: number) => (
-                <div key={index} className="text-sm text-gray-700 bg-white p-2 rounded">
-                  • {tip}
+              <div className="bg-green-500/20 border border-green-500/30 p-4 rounded-xl">
+                <div className="flex items-center gap-2 mb-3">
+                  <Zap className="w-5 h-5 text-green-400" />
+                  <h3 className="font-semibold text-green-300">אחרי האימון</h3>
+                </div>
+                <p className="text-sm text-green-200 mb-3 font-medium">{currentNutrition.postworkout.timing}</p>
+                <div className="space-y-2">
+                  {currentNutrition.postworkout.options.map((option: any, index: number) => (
+                    <div key={index} className="text-sm text-gray-200 bg-gray-800/50 p-2 rounded-lg">
+                      • {option}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-4 mb-6">
+              {currentNutrition.meals.map((meal: any, index: number) => (
+                <div key={index} className="bg-gray-700/50 border border-gray-600 rounded-xl p-4">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-2">
+                    <h3 className="font-semibold text-white text-lg">{meal.name}</h3>
+                    <span className="text-sm text-blue-400 font-medium">{meal.time}</span>
+                  </div>
+                  <div className="grid grid-cols-1 gap-3">
+                    {meal.options.map((option: any, optionIndex: number) => (
+                      <div key={optionIndex} className="bg-gray-600/30 border-r-4 border-blue-500 p-3 rounded-lg">
+                        <p className="text-sm text-gray-200">
+                          <span className="font-medium text-blue-400">אופציה {optionIndex + 1}:</span> {option}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               ))}
             </div>
+
+            <div className={`bg-gradient-to-r ${currentNutrition.color} p-4 sm:p-5 rounded-xl`}>
+              <h3 className="font-semibold text-white mb-4 flex items-center gap-2">
+                💡 טיפים תזונתיים ליום הזה
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {currentNutrition.tips.map((tip: any, index: number) => (
+                  <div key={index} className="text-sm text-white/90 bg-white/10 p-3 rounded-lg">
+                    • {tip}
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };
