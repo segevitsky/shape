@@ -1,7 +1,6 @@
 
-
 import { useState } from 'react';
-import { Zap, Target, Calendar, CheckCircle, Utensils, Coffee, Trophy, Star } from 'lucide-react';
+import { Zap, Target, Calendar, CheckCircle, Utensils, Coffee, Trophy } from 'lucide-react';
 
 const ExplosivePowerRoutine = () => {
   const [selectedDay, setSelectedDay] = useState('power');
