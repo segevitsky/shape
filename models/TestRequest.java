@@ -5,4 +5,5 @@ public class TestRequest {
     private String date;
     private String meni;
     private String newField;
+    private String newFieldTwo;
 }
