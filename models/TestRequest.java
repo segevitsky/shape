@@ -3,4 +3,5 @@ public class TestRequest {
     private String vest;
     private Integer shmest;
     private String date;
+    private String meni;
 }
