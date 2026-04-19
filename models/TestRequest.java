@@ -4,4 +4,5 @@ public class TestRequest {
     private Integer shmest;
     private String date;
     private String meni;
+    private String newField;
 }
